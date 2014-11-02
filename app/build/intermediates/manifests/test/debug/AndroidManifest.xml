@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.biovamp.circlelayoutexample.test">
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="18" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="ru.biovamp.circlelayoutexample"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for ru.biovamp.circlelayoutexample"/>
+</manifest>

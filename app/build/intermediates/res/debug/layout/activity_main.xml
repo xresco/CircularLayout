@@ -1,0 +1,218 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ru.biovamp.widget.CircleLayout
+        android:id="@+id/pie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layoutMode="pie" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0000ff" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffff00" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff00ff" />
+    </ru.biovamp.widget.CircleLayout>
+<HorizontalScrollView
+    android:id="@+id/hsv"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:fillViewport="true"
+    android:measureAllChildren="false"
+    android:scrollbars="none" >
+    <ru.biovamp.widget.CircleLayout
+        android:id="@+id/normal"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@android:color/white"
+        android:visibility="gone" >
+		<Button 
+		    android:layout_width="50dp"
+            android:layout_height="50dp"
+		    />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff0000" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000ff" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ffff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff00ff" />
+        
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff0000" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000ff" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ffff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff00ff" />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff0000" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00ff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000ff" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ffff00" />
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#ff00ff" />
+    </ru.biovamp.widget.CircleLayout>
+</HorizontalScrollView>
+    <ru.biovamp.widget.CircleLayout
+        android:id="@+id/normalWithRange"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"
+		android:layout_gravity="bottom"
+        app:angleOffset="270"
+        app:angleRange="360" >
+
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/ic_launcher"
+            android:onClick="click"
+             />
+       
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+             />
+       
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+             />
+       
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+             />
+       
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+             />
+       
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/ic_launcher"
+            />
+       
+    </ru.biovamp.widget.CircleLayout>
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+   
+    <Button
+        android:id="@+id/switchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/normal" />
+    <Button
+        android:id="@+id/rotatebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rotate"
+        android:onClick="click" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:max="720"
+        />
+     </LinearLayout>
+
+</FrameLayout><!-- From: file:/D:/Dropbox/Dropbox/AndroidWorkSpace/CircularLayout/app/src/main/res/layout/activity_main.xml -->
