@@ -31,7 +31,9 @@ public class MainActivity extends Activity {
      //   p.setMargins(90,90, 90, 90);
         civ.requestLayout();
         civ.setLayoutParams(lp);
-        cl.addView(civ);
+        View v1=cl.getChildAt(0);
+        cl.removeView(v1);
+        cl.addView(v1,2);
         cl.balanceRotate();
 
         return false;

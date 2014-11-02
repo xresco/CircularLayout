@@ -64,7 +64,7 @@ public class CircleLayout extends ViewGroup {
     float shiftAngle=0;
     MainActivity parentActivity;
     Timer timer;
-    int child_count=3;
+    int child_count=10;
     CircleLayoutAdapter adapter=new CircleLayoutAdapter();
 	 //----------
 	 
@@ -100,22 +100,27 @@ public class CircleLayout extends ViewGroup {
 	private Set<View> mDirtyViews = new HashSet<View>();
 	private boolean mCached = false;
 
-    @Override
-    public int getChildCount() {
+//    @Override
+//    public int getChildCount() {
+//
+//        return child_count;
+//    }
+//
+//    @Override
+//    public View getChildAt(int index) {
+//        return adapter.get(index);
+//    }
 
-        return child_count;
-    }
-
-    @Override
-    public View getChildAt(int index) {
-        return adapter.get(index);
-    }
-
-    @Override
-    public void addView(View child) {
-         adapter.add((CustomeImageView)child);
-        super.addView(child);
-    }
+//    @Override
+//    public void addView(View child) {
+//         adapter.add((CustomeImageView)child);
+//        super.addView(child);
+//    }
+//    @Override
+//    public void addView(View child,int index) {
+//        adapter.add((CustomeImageView)child);
+//        super.addView(child,index);
+//    }
     public void init()
     {
 
