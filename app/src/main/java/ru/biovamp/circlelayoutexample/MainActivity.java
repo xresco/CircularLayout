@@ -5,12 +5,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ru.biovamp.widget.CircleLayout;
+import ru.biovamp.widget.CustomeImageView;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -20,9 +24,17 @@ public class MainActivity extends Activity {
 	public boolean click(View v)
 	{
 
-		CircleLayout cl=(CircleLayout)findViewById(R.id.normalWithRange);
-		cl.balanceRotate();
-		return false;
+        CircleLayout cl=(CircleLayout)findViewById(R.id.normalWithRange);
+        CustomeImageView civ=new CustomeImageView(getApplicationContext());
+        ViewGroup.LayoutParams lp=new ViewGroup.LayoutParams(200,200);
+        ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+        p.setMargins(90,90, 90, 90);
+        civ.requestLayout();
+        civ.setLayoutParams(lp);
+        cl.addView(civ);
+        cl.balanceRotate();
+
+        return false;
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

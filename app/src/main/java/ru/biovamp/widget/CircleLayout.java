@@ -41,11 +41,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -60,6 +64,8 @@ public class CircleLayout extends ViewGroup {
     float shiftAngle=0;
     MainActivity parentActivity;
     Timer timer;
+    int child_count=0;
+    CircleLayoutAdapter adapter=new CircleLayoutAdapter();
 	 //----------
 	 
 	public static final int LAYOUT_NORMAL = 1;
@@ -312,7 +318,7 @@ public class CircleLayout extends ViewGroup {
 		radius=(float) (width/2)+radius_parameter;
 		mBounds.set(width/2 - minDimen/2, height/2 - minDimen/2, width/2 + minDimen/2, height/2 + minDimen/2);
 		
-		float startAngle = mAngleOffset;
+		float startAngle = mAngleOffset+270;
 		
 		for(int i=0; i<childs; i++) {
 			final View child = getChildAt(i);
@@ -412,11 +418,11 @@ public class CircleLayout extends ViewGroup {
 		timer=new Timer();
 		RotationTimerTask timerTask=new RotationTimerTask(angle);
 	   // timer.cancel();
-		timer.schedule(timerTask, 0, 10);
+		timer.schedule(timerTask, 0, 4);
 	}
 	public void rotate(float distance) {
 
-		this.setAngleOffset(getAngleOffset()+distance);
+		this.setAngleOffset((getAngleOffset()+distance)%360);
 	      for(int i=0; i<getChildCount(); i++) {
 				final View child = getChildAt(i);	
 			    if(child instanceof CustomeImageView)
@@ -429,7 +435,7 @@ public class CircleLayout extends ViewGroup {
 	
 	public void rotateToAngle(float angle) {
 
-		this.setAngleOffset(angle);
+		this.setAngleOffset(angle%360);
 	      for(int i=0; i<getChildCount(); i++) {
 				final View child = getChildAt(i);	
 			    if(child instanceof CustomeImageView)
@@ -442,8 +448,21 @@ public class CircleLayout extends ViewGroup {
 	
 	public void balanceRotate()
 	{
-		
-		float ratio=mAngleOffset/shiftAngle;
+        final int childs = getChildCount();
+
+        float totalWeight = 0f;
+
+        for(int i=0; i<childs; i++) {
+            final View child = getChildAt(i);
+
+            LayoutParams lp = layoutParams(child);
+
+            totalWeight += lp.weight;
+        }
+    //    Toast.makeText(getContext(),childs,Toast.LENGTH_SHORT).show();
+
+        shiftAngle= mAngleRange/totalWeight;
+		float ratio=getAngleOffset()/shiftAngle;
 		int roundedRatio=Math.round(ratio);
 		int angle=(int) (roundedRatio*shiftAngle);
 	//	Toast.makeText(getContext(), angle+"_"+getAngleOffset(), Toast.LENGTH_SHORT).show();
@@ -717,7 +736,7 @@ public class CircleLayout extends ViewGroup {
 	class RotationTimerTask extends TimerTask {
 
 		float desiredAngle=0;
-		float currentAngle=0;
+	    float  currentAngle=0;
 		public RotationTimerTask(float angle) {
 			desiredAngle=angle;
 			currentAngle=CircleLayout.this.getAngleOffset();
@@ -728,9 +747,10 @@ public class CircleLayout extends ViewGroup {
 			  CircleLayout.this.parentActivity.runOnUiThread(new Runnable(){
 				    @Override
 				    public void run() {
-				    	if(currentAngle>desiredAngle+1)
+
+				    	if(currentAngle>=desiredAngle+1)
 				    		CircleLayout.this.rotateToAngle(currentAngle--);
-				    	else if(currentAngle<desiredAngle-1)
+				    	else if(currentAngle<=desiredAngle-1)
 				    		CircleLayout.this.rotateToAngle(currentAngle++);
 				    	else
 				    	{
