@@ -1,5 +1,8 @@
 package ru.biovamp.widget;
 
+import android.content.Context;
+import android.view.ViewGroup;
+
 import java.util.LinkedList;
 
 /**
@@ -7,7 +10,9 @@ import java.util.LinkedList;
  */
 public class CircleLayoutAdapter {
 
+
     private LinkedList<CustomeImageView> adapter=new LinkedList<CustomeImageView>();
+
 
     public void add(CustomeImageView v)
     {

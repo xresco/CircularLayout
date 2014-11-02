@@ -26,9 +26,9 @@ public class MainActivity extends Activity {
 
         CircleLayout cl=(CircleLayout)findViewById(R.id.normalWithRange);
         CustomeImageView civ=new CustomeImageView(getApplicationContext());
-        ViewGroup.LayoutParams lp=new ViewGroup.LayoutParams(200,200);
-        ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-        p.setMargins(90,90, 90, 90);
+        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(200,200);
+      //  ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+     //   p.setMargins(90,90, 90, 90);
         civ.requestLayout();
         civ.setLayoutParams(lp);
         cl.addView(civ);
@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
 		});           
 		
 		final Button switchBtn = (Button) findViewById(R.id.switchBtn);
+
 		switchBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

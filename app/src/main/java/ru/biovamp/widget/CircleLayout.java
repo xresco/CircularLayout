@@ -64,7 +64,7 @@ public class CircleLayout extends ViewGroup {
     float shiftAngle=0;
     MainActivity parentActivity;
     Timer timer;
-    int child_count=0;
+    int child_count=3;
     CircleLayoutAdapter adapter=new CircleLayoutAdapter();
 	 //----------
 	 
@@ -99,15 +99,46 @@ public class CircleLayout extends ViewGroup {
 	private Canvas mCachedCanvas;
 	private Set<View> mDirtyViews = new HashSet<View>();
 	private boolean mCached = false;
-	
-	public CircleLayout(Context context) {
+
+    @Override
+    public int getChildCount() {
+
+        return child_count;
+    }
+
+    @Override
+    public View getChildAt(int index) {
+        return adapter.get(index);
+    }
+
+    @Override
+    public void addView(View child) {
+         adapter.add((CustomeImageView)child);
+        super.addView(child);
+    }
+    public void init()
+    {
+
+        CustomeImageView civ=new CustomeImageView(getContext());
+        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(200,200);
+        //  ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+        //   p.setMargins(90,90, 90, 90);
+        civ.requestLayout();
+        civ.setLayoutParams(lp);
+        this.addView(civ);
+
+    }
+
+    public CircleLayout(Context context) {
 		this(context, null);
+        init();
 	}
 	
 	
 	@SuppressLint("NewApi")
 	public CircleLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
+        init();
 		gestureDetector = new GestureDetector(getContext(),new MyGestureDetector());
 		mDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -287,7 +318,8 @@ public class CircleLayout extends ViewGroup {
 		paint.setAlpha(60);
 		paint.setStyle(Paint.Style.STROKE);
 		canvas.drawCircle(x, y, radius, paint);
-		
+//		for(int i=0;i<getChildCount();i++)
+//            drawChild(canvas,i,layoutParams(getChildAt(i)));
 	
 		super.onDraw(canvas);
 	}
@@ -302,7 +334,7 @@ public class CircleLayout extends ViewGroup {
 			final View child = getChildAt(i);
 			
 			LayoutParams lp = layoutParams(child);
-			
+
 			totalWeight += lp.weight;
 		}
 		
@@ -573,45 +605,51 @@ public class CircleLayout extends ViewGroup {
 	    }
 	}
 	
-	private void drawChild(Canvas canvas, View child, LayoutParams lp) {
-		mSrcCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-		mDstCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-		
-		mSrcCanvas.save();
-		
-		int childLeft = child.getLeft();
-		int childTop = child.getTop();
-		int childRight = child.getRight();
-		int childBottom = child.getBottom();
-		
-		mSrcCanvas.clipRect(childLeft, childTop, childRight, childBottom, Op.REPLACE);
-		mSrcCanvas.translate(childLeft, childTop);
-		//mSrcCanvas.rotate(60f);
-		
-		child.draw(mSrcCanvas);
-
-		mSrcCanvas.restore();
-		
-		mXferPaint.setXfermode(null);
-		mXferPaint.setColor(Color.BLACK);
-
-		float sweepAngle = (lp.endAngle - lp.startAngle) % 361;
-		
-		mDstCanvas.drawArc(mBounds, lp.startAngle, sweepAngle, true, mXferPaint);
-		mXferPaint.setXfermode(mXfer);
-		mDstCanvas.drawBitmap(mSrc, 0f, 0f, mXferPaint);
-		
-		canvas.drawBitmap(mDst, 0f, 0f, null);
+	private void drawChild(Canvas canvas, int childIndex, LayoutParams lp) {
+        View child=getChildAt(childIndex);
+        drawChild(canvas,child,lp);
 	}
+
+    private void drawChild(Canvas canvas, View child, LayoutParams lp) {
+        mSrcCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        mDstCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+        mSrcCanvas.save();
+
+        int childLeft = child.getLeft();
+        int childTop = child.getTop();
+        int childRight = child.getRight();
+        int childBottom = child.getBottom();
+
+        mSrcCanvas.clipRect(childLeft, childTop, childRight, childBottom, Op.REPLACE);
+        mSrcCanvas.translate(childLeft, childTop);
+        //mSrcCanvas.rotate(60f);
+
+        child.draw(mSrcCanvas);
+
+        mSrcCanvas.restore();
+
+        mXferPaint.setXfermode(null);
+        mXferPaint.setColor(Color.BLACK);
+
+        float sweepAngle = (lp.endAngle - lp.startAngle) % 361;
+
+        mDstCanvas.drawArc(mBounds, lp.startAngle, sweepAngle, true, mXferPaint);
+        mXferPaint.setXfermode(mXfer);
+        mDstCanvas.drawBitmap(mSrc, 0f, 0f, mXferPaint);
+
+        canvas.drawBitmap(mDst, 0f, 0f, null);
+    }
 	
 	private void redrawDirty(Canvas canvas) {
+        int counter=0;
 		for(View child : mDirtyViews) {
-			drawChild(canvas, child, layoutParams(child));
+			drawChild(canvas, counter++, layoutParams(child));
 		}
 		
-		if(mMotionTarget != null) {
-			drawChild(canvas, mMotionTarget, layoutParams(mMotionTarget));
-		}
+//		if(mMotionTarget != null) {
+//			drawChild(canvas, mMotionTarget, layoutParams(mMotionTarget));
+//		}
 	}
 	
 	private void drawDividers(Canvas canvas, float halfWidth, float halfHeight, float radius) {
@@ -703,7 +741,7 @@ public class CircleLayout extends ViewGroup {
 			final View child = getChildAt(i);			
 			LayoutParams lp = layoutParams(child);
 			
-			drawChild(canvas, child, lp);
+			drawChild(canvas, i, lp);
 		}
 		
 		drawDividers(canvas, halfWidth, halfHeight, radius);
