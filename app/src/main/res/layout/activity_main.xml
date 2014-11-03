@@ -140,6 +140,26 @@
 		android:layout_gravity="bottom"
         app:angleOffset="0"
         app:angleRange="360" >
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
+        <ru.biovamp.widget.CustomeImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/cloud"
+            />
 
         <ru.biovamp.widget.CustomeImageView
             android:layout_width="110dp"
@@ -156,11 +176,7 @@
 
 
 
-        <ru.biovamp.widget.CustomeImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/cloud"
-             />
+
        
 
        
