@@ -54,7 +54,7 @@ public class CircleLayout extends ViewGroup {
 	//my Parameters
 	private float oldX=0;
 	int radius_parameter=50;
-	int center_height_parameter=140;
+	int center_height_parameter=0;
     int center_width_parameter=0;
     GestureDetector gestureDetector = null;
     int current_step=0;
@@ -62,10 +62,10 @@ public class CircleLayout extends ViewGroup {
     float shiftAngle=0;
     MainActivity parentActivity;
     Timer timer;
-    int child_count=10;
+    //int child_count=20;
     CircleLayoutAdapter adapter=new CircleLayoutAdapter(getContext());
-    //int  dp=(int)convertDpToPixel(110,getContext());// Icon Size
-   // CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);// layout paras
+    int  dp=(int)convertDpToPixel(110,getContext());// Icon Size
+    CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);// layout paras
     boolean isRotateRight=false;
 	 //----------
 	 
@@ -134,28 +134,28 @@ public class CircleLayout extends ViewGroup {
 //        civ.setLayoutParams(lp);
 //        this.addView(civ);
 
-        int childCount=6;
+        int childCount=10;
 
         for(int i=0;i<childCount/2;i++)
         {
             int index=-1*i;
-//            CustomImageView civ = new CustomImageView(getContext());
-//            civ.setLayoutParams(lp);
-//            civ.setBackgroundResource(adapter.get( index));
-//            civ.setText("Test" + ( index));
+            CustomImageView civ = new CustomImageView(getContext());
+            civ.setLayoutParams(lp);
+            civ.setBackgroundResource(adapter.get( index));
+            civ.setText("Test" + ( index));
 
-            this.addView(adapter.get( index));
+            this.addView(civ);
 
         }
-        for(int i=childCount/2;i>0;i--)
+        for(int i=childCount/2;i>0;i--) 
         {
             int index=i;
-//            CustomImageView civ = new CustomImageView(getContext());
-//            civ.setLayoutParams(lp);
-//            civ.setBackgroundResource(adapter.get(  index));
-//            civ.setText("Test" + ( index));
+            CustomImageView civ = new CustomImageView(getContext());
+            civ.setLayoutParams(lp);
+            civ.setBackgroundResource(adapter.get(  index));
+            civ.setText("Test" + ( index));
 
-            this.addView(adapter.get(index));
+            this.addView(civ);
 
         }
         final int childs = getChildCount();
@@ -357,7 +357,7 @@ public class CircleLayout extends ViewGroup {
 		 
 		radius=(float) (width/2)+radius_parameter;
 		int x =  width/2+center_width_parameter;
-		int y =  height+center_height_parameter;
+		int y =  height+(int)radius/2+center_height_parameter;
 		Paint paint=new Paint();
 		paint.setStrokeWidth(15f);
 		paint.setColor(Color.GRAY);
@@ -416,7 +416,7 @@ public class CircleLayout extends ViewGroup {
 			}
 			if(childs > 1) {
 				x = (int) (radius * Math.cos(Math.toRadians(centerAngle))) + width/2+center_width_parameter;
-				y = (int) (radius * Math.sin(Math.toRadians(centerAngle))) + height+center_height_parameter;
+				y = (int) (radius * Math.sin(Math.toRadians(centerAngle))) + height+(int)radius/2+center_height_parameter;
 				
 			} else {
 				x = width/2;
@@ -549,23 +549,23 @@ public class CircleLayout extends ViewGroup {
 
         }
 	}
-//    public static float convertDpToPixel(float dp, Context context){
-//        Resources resources = context.getResources();
-//        DisplayMetrics metrics = resources.getDisplayMetrics();
-//        float px = dp * (metrics.densityDpi / 160f);
-//        return px;
-//    }
+    public static float convertDpToPixel(float dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * (metrics.densityDpi / 160f);
+        return px;
+    }
 
     public void  updateChildAtIndex(int index)
     {
         int replacment_index=((-1*(current_step+index))%getChildCount()+getChildCount())%getChildCount();
-//        CustomImageView civ=new CustomImageView(getContext());
-//        civ.setLayoutParams(lp);
-//        civ.setBackgroundResource(adapter.get(current_step+index));
-//        civ.setText("Test"+(current_step+index));
+        CustomImageView civ=new CustomImageView(getContext());
+        civ.setLayoutParams(lp);
+        civ.setBackgroundResource(adapter.get(current_step+index));
+        civ.setText("Test"+(current_step+index));
         View v1=this.getChildAt(replacment_index);
         this.removeView(v1);
-        this.addView(adapter.get(current_step+index),replacment_index);
+        this.addView(civ,replacment_index);
     }
 	public void updateChilds()
     {

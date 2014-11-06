@@ -12,14 +12,11 @@ import android.widget.Toast;
 
 public class CustomeImageView extends Button {
 	int angle=0;
-	int center_x=0;
-	int center_y=0;
+
 	boolean bool=false;
-	public void setRotationParameters(int r, int x, int y)
+	public void setRotationParameters(int r)
 	{
 		angle=r;
-		center_x=x;
-		center_y=y;
 	}
 	public CustomeImageView(Context context) {
 		super(context);
