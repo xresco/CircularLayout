@@ -1,20 +1,14 @@
 package ru.biovamp.circlelayoutexample;
 
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 import ru.biovamp.widget.CircleLayout;
-import ru.biovamp.widget.CustomeImageView;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -23,19 +17,6 @@ public class MainActivity extends Activity {
 	
 	public boolean click(View v)
 	{
-
-        CircleLayout cl=(CircleLayout)findViewById(R.id.normalWithRange);
-        CustomeImageView civ=new CustomeImageView(getApplicationContext());
-        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(200,200);
-      //  ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-     //   p.setMargins(90,90, 90, 90);
-        civ.requestLayout();
-        civ.setLayoutParams(lp);
-        View v1=cl.getChildAt(0);
-        cl.removeView(v1);
-        cl.addView(v1,2);
-        cl.balanceRotate();
-
         return false;
 	}
 	@Override

@@ -26,6 +26,7 @@ import ru.biovamp.circlelayoutexample.MainActivity;
 import ru.biovamp.circlelayoutexample.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -41,17 +42,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class CircleLayout extends ViewGroup {
 	//my Parameters
@@ -66,7 +63,10 @@ public class CircleLayout extends ViewGroup {
     MainActivity parentActivity;
     Timer timer;
     int child_count=10;
-    CircleLayoutAdapter adapter=new CircleLayoutAdapter();
+    CircleLayoutAdapter adapter=new CircleLayoutAdapter(getContext());
+    //int  dp=(int)convertDpToPixel(110,getContext());// Icon Size
+   // CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);// layout paras
+    boolean isRotateRight=false;
 	 //----------
 	 
 	public static final int LAYOUT_NORMAL = 1;
@@ -134,6 +134,30 @@ public class CircleLayout extends ViewGroup {
 //        civ.setLayoutParams(lp);
 //        this.addView(civ);
 
+        int childCount=6;
+
+        for(int i=0;i<childCount/2;i++)
+        {
+            int index=-1*i;
+//            CustomImageView civ = new CustomImageView(getContext());
+//            civ.setLayoutParams(lp);
+//            civ.setBackgroundResource(adapter.get( index));
+//            civ.setText("Test" + ( index));
+
+            this.addView(adapter.get( index));
+
+        }
+        for(int i=childCount/2;i>0;i--)
+        {
+            int index=i;
+//            CustomImageView civ = new CustomImageView(getContext());
+//            civ.setLayoutParams(lp);
+//            civ.setBackgroundResource(adapter.get(  index));
+//            civ.setText("Test" + ( index));
+
+            this.addView(adapter.get(index));
+
+        }
         final int childs = getChildCount();
 
         float totalWeight = 0f;
@@ -385,10 +409,10 @@ public class CircleLayout extends ViewGroup {
 			final float centerAngle = startAngle ;
 			final int x;
 			final int y;
-			if(child instanceof CustomeImageView)
+			if(child instanceof CustomImageView)
 			{
-				CustomeImageView civ=(CustomeImageView)child;
-				civ.setRotationParameters((int)(centerAngle)+90, 0, 0);
+				CustomImageView civ=(CustomImageView)child;
+				civ.setRotationParameters((int)(centerAngle)+90);
 			}
 			if(childs > 1) {
 				x = (int) (radius * Math.cos(Math.toRadians(centerAngle))) + width/2+center_width_parameter;
@@ -464,6 +488,7 @@ public class CircleLayout extends ViewGroup {
 		}
 		if (action == MotionEvent.ACTION_UP) {
 		  balanceRotate();
+
 		}
 		  return true;
 	}
@@ -472,17 +497,17 @@ public class CircleLayout extends ViewGroup {
 		timer=new Timer();
 		RotationTimerTask timerTask=new RotationTimerTask(angle);
 	   // timer.cancel();
-		timer.schedule(timerTask, 0, 4);
+		timer.schedule(timerTask, 0, 5);
 	}
 	public void rotate(float distance) {
 
 		this.setAngleOffset((getAngleOffset()+distance));
 	      for(int i=0; i<getChildCount(); i++) {
 				final View child = getChildAt(i);	
-			    if(child instanceof CustomeImageView)
+			    if(child instanceof CustomImageView)
 				{
-					CustomeImageView civ=(CustomeImageView)child;
-					civ.setRotationParameters((int)(getAngleOffset()), 0, 0);
+					CustomImageView civ=(CustomImageView)child;
+					civ.setRotationParameters((int)(getAngleOffset()));
 				}
 	      }
         float ratio=getAngleOffset()/shiftAngle;
@@ -492,7 +517,12 @@ public class CircleLayout extends ViewGroup {
         int prev_step=current_step;
         current_step=(int)(angle1/shiftAngle);
         if(prev_step!=current_step)
+        {
+            isRotateRight=current_step>prev_step?false:true;
             updateChilds();
+
+        }
+
 	}
 	
 	public void rotateToAngle(float angle) {
@@ -500,10 +530,10 @@ public class CircleLayout extends ViewGroup {
 		this.setAngleOffset(angle);
 	      for(int i=0; i<getChildCount(); i++) {
 				final View child = getChildAt(i);	
-			    if(child instanceof CustomeImageView)
+			    if(child instanceof CustomImageView)
 				{
-					CustomeImageView civ=(CustomeImageView)child;
-					civ.setRotationParameters((int)(getAngleOffset()), 0, 0);
+					CustomImageView civ=(CustomImageView)child;
+					civ.setRotationParameters((int)(getAngleOffset()));
 				}
 	      }
         float ratio=getAngleOffset()/shiftAngle;
@@ -513,22 +543,63 @@ public class CircleLayout extends ViewGroup {
         int prev_step=current_step;
         current_step=(int)(angle1/shiftAngle);
         if(prev_step!=current_step)
+        {
+            isRotateRight=current_step>prev_step?false:true;
             updateChilds();
+
+        }
 	}
+//    public static float convertDpToPixel(float dp, Context context){
+//        Resources resources = context.getResources();
+//        DisplayMetrics metrics = resources.getDisplayMetrics();
+//        float px = dp * (metrics.densityDpi / 160f);
+//        return px;
+//    }
+
+    public void  updateChildAtIndex(int index)
+    {
+        int replacment_index=((-1*(current_step+index))%getChildCount()+getChildCount())%getChildCount();
+//        CustomImageView civ=new CustomImageView(getContext());
+//        civ.setLayoutParams(lp);
+//        civ.setBackgroundResource(adapter.get(current_step+index));
+//        civ.setText("Test"+(current_step+index));
+        View v1=this.getChildAt(replacment_index);
+        this.removeView(v1);
+        this.addView(adapter.get(current_step+index),replacment_index);
+    }
 	public void updateChilds()
     {
+        if(!isRotateRight)
+            updateChildAtIndex(Math.round(getChildCount()/4));
+        else
+            updateChildAtIndex(-1*Math.round(getChildCount()/4));
+//        CustomeImageView civ=new CustomeImageView(getContext());
+//        int replacment_index=((-1*(current_step+2))%6+6)%6;
+//        int  dp=(int)convertDpToPixel(110,getContext());
+//        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);
+//        civ.setLayoutParams(lp);
+//        civ.setBackgroundResource(adapter.get(current_step+2));
+//        civ.setText("Test"+(current_step+2));
+//        View v1=this.getChildAt(replacment_index);
+//        this.removeView(v1);
+//        this.addView(civ,replacment_index);
+//
+//         civ=new CustomeImageView(getContext());
+//         replacment_index=((-1*(current_step-2))%6+6)%6;
+//        //  dp=(int)convertDpToPixel(110,getContext());
+//       //  lp=new CircleLayout.LayoutParams(dp,dp);
+//        civ.setLayoutParams(lp);
+//        civ.setBackgroundResource(adapter.get(current_step-2));
+//        civ.setText("Test"+(current_step-2));
+//         v1=this.getChildAt(replacment_index);
+//        this.removeView(v1);
+//        this.addView(civ,replacment_index);
 
-        CustomeImageView civ=new CustomeImageView(getContext());
-        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(200,200);
-        //  ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-        //   p.setMargins(90,90, 90, 90);
-        civ.requestLayout();
-        civ.setLayoutParams(lp);
-        civ.setBackgroundResource(R.drawable.cloud);
-        View v1=this.getChildAt((current_step+4)%6);
-        this.removeView(v1);
-        this.addView(civ,(current_step+4)%6);
-        Toast.makeText(getContext(),(current_step+4)%6+"",Toast.LENGTH_LONG).show();
+
+
+
+
+       // Toast.makeText(getContext(),current_step+"_"+replacment_index,Toast.LENGTH_LONG).show();
     }
 	public void balanceRotate()
 	{
@@ -830,9 +901,9 @@ public class CircleLayout extends ViewGroup {
 				    public void run() {
 
 				    	if(currentAngle>=desiredAngle+1)
-				    		CircleLayout.this.rotateToAngle(currentAngle--);
+				    		CircleLayout.this.rotateToAngle(currentAngle-=1);
 				    	else if(currentAngle<=desiredAngle-1)
-				    		CircleLayout.this.rotateToAngle(currentAngle++);
+				    		CircleLayout.this.rotateToAngle(currentAngle+=1);
 				    	else
 				    	{
 				    		CircleLayout.this.timer.cancel();
