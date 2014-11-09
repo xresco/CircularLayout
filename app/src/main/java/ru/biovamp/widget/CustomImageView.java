@@ -13,8 +13,17 @@ public class CustomImageView extends Button {
 	private int rotation_angle=0;
     private float onMotionDown_X,onMotionDown_Y;// coordinates when motion down event
 	private boolean isPressed=false;
+    private int index;
 
-	public void setRotationParameters(int angle)// set the rotation angle of the object
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setRotationParameters(int angle)// set the rotation angle of the object
 	{
         rotation_angle=angle;
 	}
@@ -67,7 +76,7 @@ public class CustomImageView extends Button {
     }
     public void onClick() //the function get activated whenever click event occurs
     {
-        Toast.makeText(getContext(), "fffff", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "fffff "+index, Toast.LENGTH_SHORT).show();
     }
     public void init() //Initialize the object
     {
