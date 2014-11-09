@@ -6,6 +6,8 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ public class CustomImageView extends Button {
     public void setRotationParameters(int angle)// set the rotation angle of the object
 	{
         rotation_angle=angle;
+        this.invalidate();
+     //   this.refreshDrawableState();
 	}
 	public CustomImageView(Context context) {
 		super(context);
@@ -76,10 +80,12 @@ public class CustomImageView extends Button {
     }
     public void onClick() //the function get activated whenever click event occurs
     {
-        Toast.makeText(getContext(), "fffff "+index, Toast.LENGTH_SHORT).show();
+       // setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        Toast.makeText(getContext(), rotation_angle%360+ " fffff "+index, Toast.LENGTH_SHORT).show();
     }
     public void init() //Initialize the object
     {
+        setLayerType(View.LAYER_TYPE_HARDWARE, null);
     	this.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -100,11 +106,23 @@ public class CustomImageView extends Button {
 			}
 		});
     }
-	
+	public void balance()
+    {
+        Animation an = new RotateAnimation(0, -1*CircleLayout.childs_rotation_angle, this.getHeight() / 2, this.getWidth() / 2);
+        an.setDuration(300);               // duration in ms
+        an.setRepeatCount(0);                // -1 = infinite repeated
+        an.setRepeatMode(Animation.REVERSE); // reverses each repeat
+        an.setFillAfter(true);
+        this.setAnimation(an);
+    }
 	@Override
 	public void draw(Canvas canvas) {
 	    canvas.save();
-	    canvas.rotate(rotation_angle,this.getHeight()/2,this.getWidth()/2);
+        if(CircleLayout.childs_isRotated)
+	        canvas.rotate(rotation_angle%360,this.getHeight()/2,this.getWidth()/2);
+        else
+            canvas.rotate(CircleLayout.childs_rotation_angle, this.getHeight() / 2, this.getWidth() / 2);
+      //  canvas.rot
 	    super.draw(canvas);
 	    canvas.restore();
 	}

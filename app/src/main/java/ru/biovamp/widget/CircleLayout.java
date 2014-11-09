@@ -57,11 +57,12 @@ public class CircleLayout extends ViewGroup {
     int center_width_parameter=0;
     CircleLayoutAdapter adapter=new CircleLayoutAdapter(getContext());
 
-    int child_count=19;
+    int child_count=10;
 
-
+    public static boolean childs_isRotated=false;
+    public static int childs_rotation_angle=0;
 	 //----------
-    Activity parentActivity;
+    private Activity parentActivity= (Activity) this.getContext();
     private float shiftAngle=0;
     private int current_step=0;
     private float oldX=0;
@@ -69,68 +70,16 @@ public class CircleLayout extends ViewGroup {
     private int  dp=(int)convertDpToPixel(110,getContext());// Icon Size
     private  CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);// layout paras
     private boolean isRotateRight=false;
-    //----------
-	//private Drawable mInnerCircle;
-	
 	private float mAngleOffset;
 	private float mAngleRange;
 	
-	//private float mDividerWidth;
-	//private int mInnerRadius;
-	
-//	private Paint mDividerPaint;
-//	private Paint mCirclePaint;
-	
-	//private RectF mBounds = new RectF();
-
-//	private Bitmap mDst;
-//	private Bitmap mSrc;
-//	private Canvas mSrcCanvas;
-//	private Canvas mDstCanvas;
-//	private Xfermode mXfer;
-//	private Paint mXferPaint;
-
-//	private View mMotionTarget;
-//
-//	private Bitmap mDrawingCache;
-//	private Canvas mCachedCanvas;
-//	private Set<View> mDirtyViews = new HashSet<View>();
-//	private boolean mCached = false;
-
-
-//    @Override
-//    public int getChildCount() {
-//
-//        return child_count;
-//    }
-//
-//    @Override
-//    public View getChildAt(int index) {
-//        return adapter.get(index);
-//    }
-//
-//    @Override
-//    public void addView(View child) {
-//         adapter.add((CustomeImageView)child);
-//        super.addView(child);
-//    }
-//    @Override
-//    public void addView(View child,int index) {
-//        adapter.add((CustomeImageView)child);
-//        super.addView(child,index);
-//    }
+    public static void toggleChildIsRotated()
+    {
+        childs_isRotated=!childs_isRotated;
+//        this.invalidate();
+    }
     public void init()
     {
-
-//        CustomeImageView civ=new CustomeImageView(getContext());
-//        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(200,200);
-//        //  ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-//        //   p.setMargins(90,90, 90, 90);
-//        civ.requestLayout();
-//        civ.setLayoutParams(lp);
-//        this.addView(civ);
-
-        //int childCount=14;
 
         for(int i=0;i<child_count/2;i++)
         {
@@ -139,7 +88,6 @@ public class CircleLayout extends ViewGroup {
             civ.setLayoutParams(lp);
             civ.setBackgroundResource(adapter.get( index));
             civ.setText("Test" + ( index));
-
             this.addView(civ);
 
         }
@@ -150,23 +98,16 @@ public class CircleLayout extends ViewGroup {
             civ.setLayoutParams(lp);
             civ.setBackgroundResource(adapter.get(  index));
             civ.setText("Test" + ( index));
-
             this.addView(civ);
-
         }
+
         final int childs = getChildCount();
-
         float totalWeight = 0f;
-
         for(int i=0; i<childs; i++) {
             final View child = getChildAt(i);
-
             LayoutParams lp = layoutParams(child);
-
             totalWeight += lp.weight;
         }
-        //    Toast.makeText(getContext(),childs,Toast.LENGTH_SHORT).show();
-
         shiftAngle= mAngleRange/totalWeight;
 
     }
@@ -181,59 +122,26 @@ public class CircleLayout extends ViewGroup {
 	public CircleLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
         init();
-		//gestureDetector = new GestureDetector(getContext(),new MyGestureDetector());
-//		mDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-//		mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircleLayout, 0, 0);
 
 		try {
-			//int dividerColor = a.getColor(R.styleable.CircleLayout_sliceDivider, android.R.color.darker_gray);
-//			mInnerCircle = a.getDrawable(R.styleable.CircleLayout_innerCircle);
-//
-//			if(mInnerCircle instanceof ColorDrawable) {
-//				int innerColor = a.getColor(R.styleable.CircleLayout_innerCircle, android.R.color.white);
-//				mCirclePaint.setColor(innerColor);
-//			}
-
-			//mDividerPaint.setColor(dividerColor);
-
 			mAngleOffset = a.getFloat(R.styleable.CircleLayout_angleOffset, 90f);
-			//currentAngle=mAngleOffset;
 			mAngleRange = a.getFloat(R.styleable.CircleLayout_angleRange, 360f);
-			//mDividerWidth = a.getDimensionPixelSize(R.styleable.CircleLayout_dividerWidth, 1);
-			//mInnerRadius = a.getDimensionPixelSize(R.styleable.CircleLayout_innerRadius, 0);
-
-		//	mLayoutMode = a.getColor(R.styleable.CircleLayout_layoutMode, LAYOUT_NORMAL);
 		} finally {
 			a.recycle();
 		}
 
-		//mDividerPaint.setStrokeWidth(mDividerWidth);
-
-		//mXfer = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-		//mXferPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-		//Turn off hardware acceleration if possible
-		if(Build.VERSION.SDK_INT >= 11) {
-			setLayerType(LAYER_TYPE_SOFTWARE, null);
-		}
+//		//Turn off hardware acceleration if possible
+//		if(Build.VERSION.SDK_INT >= 11) {
+//			setLayerType(LAYER_TYPE_SOFTWARE, null);
+//		}
 
 	}
 	
-	public void setParentActivity(MainActivity parentActivity) {
-		this.parentActivity = parentActivity;
-	}
-//	public void setLayoutMode(int mode) {
-//		mLayoutMode = mode;
-//		requestLayout();
-//		invalidate();
-//	}
+//	public void setParentActivity(MainActivity parentActivity) {
 //
-//	public int getLayoutMode() {
-//		return mLayoutMode;
 //	}
-//
+
 	public int getRadius() {
 		final int width = getWidth();
 		final int height = getHeight();
@@ -241,7 +149,6 @@ public class CircleLayout extends ViewGroup {
 		final float minDimen = width > height ? height : width;
 		
 		float radius = (minDimen )/2f;
-		//radius=2*width;
 		return (int) radius;
 	}
 	
@@ -490,7 +397,7 @@ public class CircleLayout extends ViewGroup {
 	}
 	public void smoothRotate(float angle)
 	{
-       // if(balancing_timer.)
+
         try {
             balancing_timer.cancel();
             balancing_timer.purge();
@@ -502,7 +409,7 @@ public class CircleLayout extends ViewGroup {
         balancing_timer=new Timer();
 		RotationTimerTask timerTask=new RotationTimerTask(angle);
 	   // timer.cancel();
-        balancing_timer.schedule(timerTask, 0, 5);
+        balancing_timer.schedule(timerTask, 0, 15);
 	}
 	public void rotate(float distance) {
 
@@ -521,9 +428,15 @@ public class CircleLayout extends ViewGroup {
 
         int prev_step=current_step;
         current_step=(int)(angle1/shiftAngle);
+//        childs_rotation_angle=20;
+//        updateChilds();
         if(prev_step!=current_step)
         {
             isRotateRight=current_step>prev_step?false:true;
+            if(isRotateRight)
+                childs_rotation_angle=20;
+            else
+                childs_rotation_angle=-20;
             updateChilds();
 
         }
@@ -547,9 +460,14 @@ public class CircleLayout extends ViewGroup {
 
         int prev_step=current_step;
         current_step=(int)(angle1/shiftAngle);
+       // childs_rotation_angle=20;
         if(prev_step!=current_step)
         {
             isRotateRight=current_step>prev_step?false:true;
+            if(isRotateRight)
+                childs_rotation_angle=20;
+            else
+                childs_rotation_angle=-20;
             updateChilds();
 
         }
@@ -610,6 +528,17 @@ public class CircleLayout extends ViewGroup {
     }
 	public void balanceRotate()
 	{
+
+      //  childs_rotation_angle=0;
+
+        if(!childs_isRotated) {
+            final int childs = getChildCount();
+            for (int i = 0; i < childs; i++) {
+                final CustomImageView child = (CustomImageView) getChildAt(i);
+                child.balance();
+            }
+           // childs_rotation_angle=0;
+        }
 
 		float ratio=getAngleOffset()/shiftAngle;
 		int roundedRatio=Math.round(ratio);

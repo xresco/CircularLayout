@@ -17,6 +17,7 @@ public class MainActivity extends Activity {
 	
 	public boolean click(View v)
 	{
+        CircleLayout.toggleChildIsRotated();
         return false;
 	}
 	@Override
@@ -31,7 +32,7 @@ public class MainActivity extends Activity {
 		
 
 		final CircleLayout normalWithRange =(CircleLayout) findViewById(R.id.normalWithRange);
-		normalWithRange.setParentActivity(this);
+		//normalWithRange.setParentActivity(this);
 		final SeekBar sk=(SeekBar) findViewById(R.id.seekBar);     
 	    sk.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {       
 		    @Override       
