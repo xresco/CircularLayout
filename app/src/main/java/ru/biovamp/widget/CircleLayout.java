@@ -52,19 +52,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 public class CircleLayout extends ViewGroup {
-	//my Parameters
-
 	int radius_parameter=250;
 	int center_height_parameter=0;
     int center_width_parameter=0;
     CircleLayoutAdapter adapter=new CircleLayoutAdapter(getContext());
-    //GestureDetector gestureDetector = null;
 
-
-
-
-
-    int child_count=2;
+    int child_count=19;
 
 
 	 //----------
@@ -77,37 +70,32 @@ public class CircleLayout extends ViewGroup {
     private  CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(dp,dp);// layout paras
     private boolean isRotateRight=false;
     //----------
-//	public static final int LAYOUT_NORMAL = 1;
-//	public static final int LAYOUT_PIE = 2;
-
-//	private int mLayoutMode = 1;
-	
-	private Drawable mInnerCircle;
+	//private Drawable mInnerCircle;
 	
 	private float mAngleOffset;
 	private float mAngleRange;
 	
-	private float mDividerWidth;
-	private int mInnerRadius;
+	//private float mDividerWidth;
+	//private int mInnerRadius;
 	
-	private Paint mDividerPaint;
-	private Paint mCirclePaint;
+//	private Paint mDividerPaint;
+//	private Paint mCirclePaint;
 	
-	private RectF mBounds = new RectF();
-	
-	private Bitmap mDst;
-	private Bitmap mSrc;
-	private Canvas mSrcCanvas;
-	private Canvas mDstCanvas;
-	private Xfermode mXfer;
-	private Paint mXferPaint;
-	
-	private View mMotionTarget;
-	
-	private Bitmap mDrawingCache;
-	private Canvas mCachedCanvas;
-	private Set<View> mDirtyViews = new HashSet<View>();
-	private boolean mCached = false;
+	//private RectF mBounds = new RectF();
+
+//	private Bitmap mDst;
+//	private Bitmap mSrc;
+//	private Canvas mSrcCanvas;
+//	private Canvas mDstCanvas;
+//	private Xfermode mXfer;
+//	private Paint mXferPaint;
+
+//	private View mMotionTarget;
+//
+//	private Bitmap mDrawingCache;
+//	private Canvas mCachedCanvas;
+//	private Set<View> mDirtyViews = new HashSet<View>();
+//	private boolean mCached = false;
 
 
 //    @Override
@@ -194,38 +182,38 @@ public class CircleLayout extends ViewGroup {
 		super(context, attrs);
         init();
 		//gestureDetector = new GestureDetector(getContext(),new MyGestureDetector());
-		mDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		
+//		mDividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+//		mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircleLayout, 0, 0);
-		
+
 		try {
-			int dividerColor = a.getColor(R.styleable.CircleLayout_sliceDivider, android.R.color.darker_gray);
-			mInnerCircle = a.getDrawable(R.styleable.CircleLayout_innerCircle);
-			
-			if(mInnerCircle instanceof ColorDrawable) {
-				int innerColor = a.getColor(R.styleable.CircleLayout_innerCircle, android.R.color.white);
-				mCirclePaint.setColor(innerColor);
-			}
-			
-			mDividerPaint.setColor(dividerColor);
-			
+			//int dividerColor = a.getColor(R.styleable.CircleLayout_sliceDivider, android.R.color.darker_gray);
+//			mInnerCircle = a.getDrawable(R.styleable.CircleLayout_innerCircle);
+//
+//			if(mInnerCircle instanceof ColorDrawable) {
+//				int innerColor = a.getColor(R.styleable.CircleLayout_innerCircle, android.R.color.white);
+//				mCirclePaint.setColor(innerColor);
+//			}
+
+			//mDividerPaint.setColor(dividerColor);
+
 			mAngleOffset = a.getFloat(R.styleable.CircleLayout_angleOffset, 90f);
 			//currentAngle=mAngleOffset;
 			mAngleRange = a.getFloat(R.styleable.CircleLayout_angleRange, 360f);
-			mDividerWidth = a.getDimensionPixelSize(R.styleable.CircleLayout_dividerWidth, 1);
-			mInnerRadius = a.getDimensionPixelSize(R.styleable.CircleLayout_innerRadius, 0);
-			
+			//mDividerWidth = a.getDimensionPixelSize(R.styleable.CircleLayout_dividerWidth, 1);
+			//mInnerRadius = a.getDimensionPixelSize(R.styleable.CircleLayout_innerRadius, 0);
+
 		//	mLayoutMode = a.getColor(R.styleable.CircleLayout_layoutMode, LAYOUT_NORMAL);
 		} finally {
 			a.recycle();
 		}
-		
-		mDividerPaint.setStrokeWidth(mDividerWidth);
-		
-		mXfer = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-		mXferPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		
+
+		//mDividerPaint.setStrokeWidth(mDividerWidth);
+
+		//mXfer = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+		//mXferPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
 		//Turn off hardware acceleration if possible
 		if(Build.VERSION.SDK_INT >= 11) {
 			setLayerType(LAYER_TYPE_SOFTWARE, null);
@@ -252,7 +240,7 @@ public class CircleLayout extends ViewGroup {
 		
 		final float minDimen = width > height ? height : width;
 		
-		float radius = (minDimen - mInnerRadius)/2f;
+		float radius = (minDimen )/2f;
 		//radius=2*width;
 		return (int) radius;
 	}
@@ -271,37 +259,37 @@ public class CircleLayout extends ViewGroup {
 		return mAngleOffset;
 	}
 	
-	public void setInnerRadius(int radius) {
-		mInnerRadius = radius;
-		requestLayout();
-		invalidate();
-	}
+//	public void setInnerRadius(int radius) {
+//		mInnerRadius = radius;
+//		requestLayout();
+//		invalidate();
+//	}
+//
+//	public int getInnerRadius() {
+//		return mInnerRadius;
+//	}
 	
-	public int getInnerRadius() {
-		return mInnerRadius;
-	}
-	
-	public void setInnerCircle(Drawable d) {
-		mInnerCircle = d;
-		requestLayout();
-		invalidate();
-	}
-	
-	public void setInnerCircle(int res) {
-		mInnerCircle = getContext().getResources().getDrawable(res);
-		requestLayout();
-		invalidate();
-	}
-	
-	public void setInnerCircleColor(int color) {
-		mInnerCircle = new ColorDrawable(color);
-		requestLayout();
-		invalidate();
-	}
-	
-	public Drawable getInnerCircle() {
-		return mInnerCircle;
-	}
+//	public void setInnerCircle(Drawable d) {
+//		mInnerCircle = d;
+//		requestLayout();
+//		invalidate();
+//	}
+//
+//	public void setInnerCircle(int res) {
+//		mInnerCircle = getContext().getResources().getDrawable(res);
+//		requestLayout();
+//		invalidate();
+//	}
+//
+//	public void setInnerCircleColor(int color) {
+//		mInnerCircle = new ColorDrawable(color);
+//		requestLayout();
+//		invalidate();
+//	}
+//
+//	public Drawable getInnerCircle() {
+//		return mInnerCircle;
+//	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -329,25 +317,25 @@ public class CircleLayout extends ViewGroup {
 		
 		setMeasuredDimension(width, height);
 		
-		if(mSrc != null && (mSrc.getWidth() != width || mSrc.getHeight() != height)) {
-			mDst.recycle();
-			mSrc.recycle();
-			mDrawingCache.recycle();
-			
-			mDst = null;
-			mSrc = null;
-			mDrawingCache = null;
-		}
-		
-		if(mSrc == null) {
-			mSrc = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-			mDst = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-			mDrawingCache = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-			
-			mSrcCanvas = new Canvas(mSrc);
-			mDstCanvas = new Canvas(mDst);
-			mCachedCanvas = new Canvas(mDrawingCache);
-		}
+//		if(mSrc != null && (mSrc.getWidth() != width || mSrc.getHeight() != height)) {
+//			mDst.recycle();
+//			mSrc.recycle();
+//			mDrawingCache.recycle();
+//
+//			mDst = null;
+//			mSrc = null;
+//			mDrawingCache = null;
+//		}
+//
+//		if(mSrc == null) {
+//			mSrc = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//			mDst = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//			mDrawingCache = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//
+//			mSrcCanvas = new Canvas(mSrc);
+//			mDstCanvas = new Canvas(mDst);
+//			mCachedCanvas = new Canvas(mDrawingCache);
+//		}
 	}
 	
 	private LayoutParams layoutParams(View child) {
@@ -361,7 +349,7 @@ public class CircleLayout extends ViewGroup {
 		final int height = getHeight();
 		
 		final float minDimen = width > height ? height : width;
-		 float radius = (minDimen - mInnerRadius)/2f;
+		 float radius = (minDimen )/2f;
 		 
 		radius=(float) (width/2)+radius_parameter;
 		int x =  width/2+center_width_parameter;
@@ -399,10 +387,10 @@ public class CircleLayout extends ViewGroup {
 		final int height = getHeight();
 		
 		final float minDimen = width > height ? height : width;
-		float radius = (minDimen - mInnerRadius)/2f;
+		float radius = (minDimen )/2f;
 		 
 		radius=(float) (width/2)+radius_parameter;
-		mBounds.set(width/2 - minDimen/2, height/2 - minDimen/2, width/2 + minDimen/2, height/2 + minDimen/2);
+	//	mBounds.set(width/2 - minDimen/2, height/2 - minDimen/2, width/2 + minDimen/2, height/2 + minDimen/2);
 		
 		float startAngle = mAngleOffset+270;
 		
@@ -441,12 +429,12 @@ public class CircleLayout extends ViewGroup {
 			
 			child.layout(left, top, right, bottom);
 			
-			if(left != child.getLeft() || top != child.getTop()
-					|| right != child.getRight() || bottom != child.getBottom()
-					|| lp.startAngle != startAngle
-					|| lp.endAngle != startAngle + angle) {
-				mCached = false;
-			}
+//			if(left != child.getLeft() || top != child.getTop()
+//					|| right != child.getRight() || bottom != child.getBottom()
+//					|| lp.startAngle != startAngle
+//					|| lp.endAngle != startAngle + angle) {
+//				//mCached = false;
+//			}
 			
 			lp.startAngle = startAngle;
 			
@@ -739,94 +727,94 @@ public class CircleLayout extends ViewGroup {
 //	    }
 //	}
 //
-	private void drawChild(Canvas canvas, int childIndex, LayoutParams lp) {
-        View child=getChildAt(childIndex);
-        drawChild(canvas,child,lp);
-	}
+//	private void drawChild(Canvas canvas, int childIndex, LayoutParams lp) {
+//        View child=getChildAt(childIndex);
+//        drawChild(canvas,child,lp);
+//	}
 
-    private void drawChild(Canvas canvas, View child, LayoutParams lp) {
-        mSrcCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-        mDstCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-
-        mSrcCanvas.save();
-
-        int childLeft = child.getLeft();
-        int childTop = child.getTop();
-        int childRight = child.getRight();
-        int childBottom = child.getBottom();
-
-        mSrcCanvas.clipRect(childLeft, childTop, childRight, childBottom, Op.REPLACE);
-        mSrcCanvas.translate(childLeft, childTop);
-        //mSrcCanvas.rotate(60f);
-
-        child.draw(mSrcCanvas);
-
-        mSrcCanvas.restore();
-
-        mXferPaint.setXfermode(null);
-        mXferPaint.setColor(Color.BLACK);
-
-        float sweepAngle = (lp.endAngle - lp.startAngle) % 361;
-
-        mDstCanvas.drawArc(mBounds, lp.startAngle, sweepAngle, true, mXferPaint);
-        mXferPaint.setXfermode(mXfer);
-        mDstCanvas.drawBitmap(mSrc, 0f, 0f, mXferPaint);
-
-        canvas.drawBitmap(mDst, 0f, 0f, null);
-    }
+//    private void drawChild(Canvas canvas, View child, LayoutParams lp) {
+//        mSrcCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+//        mDstCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+//
+//        mSrcCanvas.save();
+//
+//        int childLeft = child.getLeft();
+//        int childTop = child.getTop();
+//        int childRight = child.getRight();
+//        int childBottom = child.getBottom();
+//
+//        mSrcCanvas.clipRect(childLeft, childTop, childRight, childBottom, Op.REPLACE);
+//        mSrcCanvas.translate(childLeft, childTop);
+//        //mSrcCanvas.rotate(60f);
+//
+//        child.draw(mSrcCanvas);
+//
+//        mSrcCanvas.restore();
+//
+//        mXferPaint.setXfermode(null);
+//        mXferPaint.setColor(Color.BLACK);
+//
+//        float sweepAngle = (lp.endAngle - lp.startAngle) % 361;
+//
+//        mDstCanvas.drawArc(mBounds, lp.startAngle, sweepAngle, true, mXferPaint);
+//        mXferPaint.setXfermode(mXfer);
+//        mDstCanvas.drawBitmap(mSrc, 0f, 0f, mXferPaint);
+//
+//        canvas.drawBitmap(mDst, 0f, 0f, null);
+//    }
 	
-	private void redrawDirty(Canvas canvas) {
-        int counter=0;
-		for(View child : mDirtyViews) {
-			drawChild(canvas, counter++, layoutParams(child));
-		}
-		
-//		if(mMotionTarget != null) {
-//			drawChild(canvas, mMotionTarget, layoutParams(mMotionTarget));
+//	private void redrawDirty(Canvas canvas) {
+//        int counter=0;
+//		for(View child : mDirtyViews) {
+//			drawChild(canvas, counter++, layoutParams(child));
 //		}
-	}
+//
+////		if(mMotionTarget != null) {
+////			drawChild(canvas, mMotionTarget, layoutParams(mMotionTarget));
+////		}
+//	}
 	
-	private void drawDividers(Canvas canvas, float halfWidth, float halfHeight, float radius) {
-		final int childs = getChildCount();
-		
-		if(childs < 2) {
-			return;
-		}
-		
-		for(int i=0; i<childs; i++) {
-			final View child = getChildAt(i);			
-			LayoutParams lp = layoutParams(child);			
-			
-			canvas.drawLine(halfWidth, halfHeight,
-					radius * (float) Math.cos(Math.toRadians(lp.startAngle)) + halfWidth,
-					radius * (float) Math.sin(Math.toRadians(lp.startAngle)) + halfHeight,
-					mDividerPaint);
-			
-			if(i == childs-1) {
-				canvas.drawLine(halfWidth, halfHeight,
-						radius * (float) Math.cos(Math.toRadians(lp.endAngle)) + halfWidth,
-						radius * (float) Math.sin(Math.toRadians(lp.endAngle)) + halfHeight,
-						mDividerPaint);
-			}
-		}
-	}
+//	private void drawDividers(Canvas canvas, float halfWidth, float halfHeight, float radius) {
+//		final int childs = getChildCount();
+//
+//		if(childs < 2) {
+//			return;
+//		}
+//
+//		for(int i=0; i<childs; i++) {
+//			final View child = getChildAt(i);
+//			LayoutParams lp = layoutParams(child);
+//
+//			canvas.drawLine(halfWidth, halfHeight,
+//					radius * (float) Math.cos(Math.toRadians(lp.startAngle)) + halfWidth,
+//					radius * (float) Math.sin(Math.toRadians(lp.startAngle)) + halfHeight,
+//					mDividerPaint);
+//
+//			if(i == childs-1) {
+//				canvas.drawLine(halfWidth, halfHeight,
+//						radius * (float) Math.cos(Math.toRadians(lp.endAngle)) + halfWidth,
+//						radius * (float) Math.sin(Math.toRadians(lp.endAngle)) + halfHeight,
+//						mDividerPaint);
+//			}
+//		}
+//	}
 	
-	private void drawInnerCircle(Canvas canvas, float halfWidth, float halfHeight) {
-		if(mInnerCircle != null) {
-			if(!(mInnerCircle instanceof ColorDrawable)) {
-				mInnerCircle.setBounds(
-						(int) halfWidth - mInnerRadius,
-						(int) halfHeight - mInnerRadius,
-						(int) halfWidth + mInnerRadius,
-						(int) halfHeight + mInnerRadius);
-				
-				mInnerCircle.draw(canvas);
-			} else {
-				canvas.drawCircle(halfWidth, halfHeight, mInnerRadius, mCirclePaint);
-			}
-		}
-	}
-	
+//	private void drawInnerCircle(Canvas canvas, float halfWidth, float halfHeight) {
+//		if(mInnerCircle != null) {
+//			if(!(mInnerCircle instanceof ColorDrawable)) {
+//				mInnerCircle.setBounds(
+//						(int) halfWidth - mInnerRadius,
+//						(int) halfHeight - mInnerRadius,
+//						(int) halfWidth + mInnerRadius,
+//						(int) halfHeight + mInnerRadius);
+//
+//				mInnerCircle.draw(canvas);
+//			} else {
+//				canvas.drawCircle(halfWidth, halfHeight, mInnerRadius, mCirclePaint);
+//			}
+//		}
+//	}
+//
 	@Override
 	protected void dispatchDraw(Canvas canvas) {
 //		if(mLayoutMode == LAYOUT_NORMAL) {

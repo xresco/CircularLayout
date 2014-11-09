@@ -49,27 +49,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CircleLayout.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CircleLayout.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.535714" vertical-offset="0" max-vertical-offset="14977">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+            <state vertical-scroll-proportion="12.682" vertical-offset="323" max-vertical-offset="14841">
+              <caret line="445" column="21" selection-start-line="445" selection-start-column="21" selection-end-line="445" selection-end-column="21" />
               <folding>
-                <element signature="e#3185#3191#0" expanded="true" />
-                <element signature="e#10595#10627#0" expanded="true" />
-                <element signature="e#26352#26777#0" expanded="true" />
-                <element signature="e#26775#26776#0" expanded="true" />
+                <element signature="e#10503#10535#0" expanded="true" />
+                <element signature="e#26407#26832#0" expanded="true" />
+                <element signature="e#26830#26831#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CircleLayoutAdapter.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.444445" vertical-offset="0" max-vertical-offset="799">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircleLayoutAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayoutAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32386363" vertical-offset="356" max-vertical-offset="1003">
-              <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+              <folding>
+                <element signature="e#923#924#0" expanded="true" />
+                <element signature="e#957#958#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -787,11 +802,11 @@
       <list>
         <option value="$PROJECT_DIR$/import-summary.txt" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CustomeImageView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayoutAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/circlelayoutexample/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CustomImageView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayoutAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayout.java" />
       </list>
     </option>
@@ -904,6 +919,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="circular_layout_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="circular_layout_example" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1242,6 +1289,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5872757" sideWeight="0.25416037" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22995462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0065252855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1253,13 +1301,12 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16641453" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23071104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1290,10 +1337,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13515">
           <caret line="528" column="51" selection-start-line="528" selection-start-column="51" selection-end-line="528" selection-end-column="51" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1310,7 +1356,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
           <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1346,10 +1395,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13379">
           <caret line="527" column="61" selection-start-line="527" selection-start-column="61" selection-end-line="527" selection-end-column="61" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1358,7 +1406,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="561">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1394,10 +1445,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2227" max-vertical-offset="13838">
           <caret line="131" column="29" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1406,7 +1456,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1449,10 +1502,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6001" max-vertical-offset="13753">
           <caret line="353" column="8" selection-start-line="353" selection-start-column="8" selection-end-line="353" selection-end-column="8" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1461,7 +1513,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="561">
           <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1504,10 +1559,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3213" max-vertical-offset="12767">
           <caret line="189" column="18" selection-start-line="189" selection-start-column="18" selection-end-line="189" selection-end-column="18" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1552,10 +1606,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12767">
           <caret line="185" column="21" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1618,17 +1671,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/a2.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8707317" vertical-offset="68" max-vertical-offset="799">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
@@ -1697,24 +1739,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayout.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayoutAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.535714" vertical-offset="0" max-vertical-offset="14977">
-          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
           <folding>
-            <element signature="e#3185#3191#0" expanded="true" />
-            <element signature="e#10595#10627#0" expanded="true" />
-            <element signature="e#26352#26777#0" expanded="true" />
-            <element signature="e#26775#26776#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+            <element signature="e#957#958#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayoutAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32386363" vertical-offset="356" max-vertical-offset="1003">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        <state vertical-scroll-proportion="-9.444445" vertical-offset="0" max-vertical-offset="799">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/biovamp/widget/CircleLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.682" vertical-offset="323" max-vertical-offset="14841">
+          <caret line="445" column="21" selection-start-line="445" selection-start-column="21" selection-end-line="445" selection-end-column="21" />
+          <folding>
+            <element signature="e#10503#10535#0" expanded="true" />
+            <element signature="e#26407#26832#0" expanded="true" />
+            <element signature="e#26830#26831#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

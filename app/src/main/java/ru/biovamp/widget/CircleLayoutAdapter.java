@@ -38,11 +38,6 @@ public class CircleLayoutAdapter {
 
     public void add(Integer image)
     {
-//        CircleLayout.LayoutParams lp=new CircleLayout.LayoutParams(size,size);// layout paras
-//        CustomImageView civ = new CustomImageView(context);
-//        civ.setLayoutParams(lp);
-//        civ.setBackgroundResource(image);
-//        civ.setText(text);
         adapter.add(image);
     }
 
