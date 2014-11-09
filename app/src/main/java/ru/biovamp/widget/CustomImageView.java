@@ -48,7 +48,7 @@ public class CustomImageView extends Button {
             float x = ev.getRawX();
             float y = ev.getRawY();
           //  ev.get
-            if((Math.abs(onMotionDown_X-x)>50) || (Math.abs(onMotionDown_Y-y)>50)) {
+            if((Math.abs(onMotionDown_X-x)>10) || (Math.abs(onMotionDown_Y-y)>10)) {
                 int metaState = 0;
                 //create new motion event
                 MotionEvent motionEvent = MotionEvent.obtain(

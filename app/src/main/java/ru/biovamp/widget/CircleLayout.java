@@ -147,7 +147,7 @@ public class CircleLayout extends ViewGroup {
             this.addView(civ);
 
         }
-        for(int i=childCount/2;i>0;i--) 
+        for(int i=childCount/2;i>0;i--)
         {
             int index=i;
             CustomImageView civ = new CustomImageView(getContext());
