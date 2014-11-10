@@ -10,33 +10,14 @@
     <ru.biovamp.widget.CircleLayout
         android:id="@+id/normalWithRange"
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:background="@android:color/transparent"
 		android:layout_gravity="bottom"
         app:angleOffset="0"
-        app:angleRange="360" >
+        app:angleRange="360"
+        android:paddingBottom="0dp">
 
     </ru.biovamp.widget.CircleLayout>
-    <LinearLayout 
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        
-   
 
-    <Button
-        android:id="@+id/rotatebtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="rotate"
-        android:onClick="click" />
-
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:max="720"
-        />
-     </LinearLayout>
 
 </FrameLayout>

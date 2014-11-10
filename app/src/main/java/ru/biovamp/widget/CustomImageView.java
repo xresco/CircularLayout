@@ -16,6 +16,7 @@ public class CustomImageView extends Button {
     private float onMotionDown_X,onMotionDown_Y;// coordinates when motion down event
 	private boolean isPressed=false;
     private int index;
+    private CircleLayout parent;
 
     public void setIndex(int index) {
         this.index = index;
@@ -29,10 +30,11 @@ public class CustomImageView extends Button {
 	{
         rotation_angle=angle;
         this.invalidate();
-     //   this.refreshDrawableState();
 	}
-	public CustomImageView(Context context) {
+
+    public CustomImageView(Context context, CircleLayout cl) {
 		super(context);
+        parent=cl;
 		init();
 	}
 	public CustomImageView(Context context, AttributeSet attrs)
@@ -60,7 +62,6 @@ public class CustomImageView extends Button {
             long eventTime = SystemClock.uptimeMillis() + 100;
             float x = ev.getRawX();
             float y = ev.getRawY();
-          //  ev.get
             if((Math.abs(onMotionDown_X-x)>10) || (Math.abs(onMotionDown_Y-y)>10)) {
                 int metaState = 0;
                 //create new motion event
@@ -81,7 +82,7 @@ public class CustomImageView extends Button {
     public void onClick() //the function get activated whenever click event occurs
     {
        // setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        Toast.makeText(getContext(), rotation_angle%360+ " fffff "+index, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), index+"", Toast.LENGTH_SHORT).show();
     }
     public void init() //Initialize the object
     {
@@ -108,7 +109,8 @@ public class CustomImageView extends Button {
     }
 	public void balance()
     {
-        Animation an = new RotateAnimation(0, -1*CircleLayout.childs_rotation_angle, this.getHeight() / 2, this.getWidth() / 2);
+        CircleLayout cl=(CircleLayout)this.getParent();
+        Animation an = new RotateAnimation(0, -1*parent.get_pinnded_childs_rotation_angle(), this.getHeight() / 2, this.getWidth() / 2);
         an.setDuration(300);               // duration in ms
         an.setRepeatCount(0);                // -1 = infinite repeated
         an.setRepeatMode(Animation.REVERSE); // reverses each repeat
@@ -117,12 +119,13 @@ public class CustomImageView extends Button {
     }
 	@Override
 	public void draw(Canvas canvas) {
-	    canvas.save();
-        if(CircleLayout.childs_isRotated)
+	   canvas.save();
+       CircleLayout cl=(CircleLayout)this.getParent();
+       if(!parent.get_is_pinned_childs())
 	        canvas.rotate(rotation_angle%360,this.getHeight()/2,this.getWidth()/2);
-        else
-            canvas.rotate(CircleLayout.childs_rotation_angle, this.getHeight() / 2, this.getWidth() / 2);
-      //  canvas.rot
+       else
+            canvas.rotate(parent.get_pinnded_childs_rotation_angle(), this.getHeight() / 2, this.getWidth() / 2);
+
 	    super.draw(canvas);
 	    canvas.restore();
 	}

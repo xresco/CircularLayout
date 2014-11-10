@@ -17,28 +17,21 @@ public class CircleLayoutAdapter {
 
     private LinkedList<Integer> adapter=new LinkedList<Integer>();
     private Context context;
+    private CircleLayout parent;
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
-    public CircleLayoutAdapter(Context c)
-    {
-        context=c;
-        this.add(R.drawable.a1);
-        this.add(R.drawable.a2);
-        this.add(R.drawable.a3);
-        this.add(R.drawable.a4);
-        this.add(R.drawable.a5);
-        this.add(R.drawable.a6);
-        this.add(R.drawable.a7);
-        this.add(R.drawable.a8);
-        this.add(R.drawable.a9);
-        this.add(R.drawable.a10);
-        this.add(R.drawable.a11);
-        this.add(R.drawable.a12);
-
+    public void setParent(CircleLayout parent) {
+        this.parent = parent;
     }
 
     public void add(Integer image)
     {
         adapter.add(image);
+        if (parent!=null)
+         parent.init();
+
     }
 
     public Integer get(int index)
