@@ -11,8 +11,6 @@ import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.robox.widget.CircleLayout;
-
 public class CustomImageView extends Button {
 	private int rotation_angle=0;
     private float onMotionDown_X,onMotionDown_Y;// coordinates when motion down event

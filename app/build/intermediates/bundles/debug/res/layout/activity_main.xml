@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <com.robox.widget.CircleLayout
+        android:id="@+id/normalWithRange"
+        android:layout_width="fill_parent"
+        android:layout_height="220dp"
+        android:background="@android:color/transparent"
+		android:layout_gravity="bottom"
+        app:angleOffset="0"
+        app:angleRange="360"
+        android:paddingBottom="0dp">
+
+    </com.robox.widget.CircleLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtChildCount"
+            android:hint="Child Count"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/txtOffsetX"
+            android:hint="Offset X"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/txtOffsetY"
+            android:hint="Offset Y"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/txtRad"
+            android:hint="Radius"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Re-Initialize"
+            android:onClick="btnClick"/>
+
+        </LinearLayout>
+</FrameLayout><!-- From: file:/D:/Dropbox/Dropbox/AndroidWorkSpace/CircularLayout/app/src/main/res/layout/activity_main.xml -->

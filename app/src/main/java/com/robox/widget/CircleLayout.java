@@ -8,10 +8,6 @@
 
 package com.robox.widget;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -29,6 +25,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.robox.circlelayoutexample.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class CircleLayout extends ViewGroup {
