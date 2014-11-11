@@ -7,17 +7,7 @@
     android:layout_height="match_parent" >
 
 
-    <com.robox.widget.CircleLayout
-        android:id="@+id/normalWithRange"
-        android:layout_width="fill_parent"
-        android:layout_height="220dp"
-        android:background="@android:color/transparent"
-		android:layout_gravity="bottom"
-        app:angleOffset="0"
-        app:angleRange="360"
-        android:paddingBottom="0dp">
 
-    </com.robox.widget.CircleLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -45,6 +35,13 @@
             android:hint="Radius"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
+        <ToggleButton
+            android:id="@+id/tglBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Items Pinned"
+            android:checked="false"
+            android:onClick="tglClick"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -52,4 +49,16 @@
             android:onClick="btnClick"/>
 
         </LinearLayout>
+
+        <com.robox.widget.CircleLayout
+            android:id="@+id/circularLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="220dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="bottom"
+            app:angleOffset="0"
+            app:angleRange="360"
+            android:paddingBottom="0dp">
+
+        </com.robox.widget.CircleLayout>
 </FrameLayout><!-- From: file:/D:/Dropbox/Dropbox/AndroidWorkSpace/CircularLayout/app/src/main/res/layout/activity_main.xml -->

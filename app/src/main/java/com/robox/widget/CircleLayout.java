@@ -54,6 +54,7 @@ public class CircleLayout extends ViewGroup {
 
     public void init()
     {
+        pinnded_childs_rotation_angle=0;
         this.removeAllViews();
         this.invalidate();
         try {

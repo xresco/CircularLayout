@@ -8,10 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends Activity {
-    CircleLayout normalWithRange ;
+    CircleLayout circularLayout ;
+    public void tglClick(View v)
+    {
+        ToggleButton tg=(ToggleButton)findViewById(R.id.tglBtn);
+        circularLayout.setChildrenPinned(tg.isChecked());
+        circularLayout.init();
+    }
     public void btnClick(View v)
     {
         EditText childCount=(EditText)findViewById(R.id.txtChildCount);
@@ -20,40 +27,40 @@ public class MainActivity extends Activity {
         EditText radius=(EditText)findViewById(R.id.txtRad);
         try {
             if (radius.getText() != null) {
-                normalWithRange.setRadius((Integer.parseInt(radius.getText().toString())));
-                normalWithRange.init();
+                circularLayout.setRadius((Integer.parseInt(radius.getText().toString())));
+                circularLayout.init();
             }
         }
         catch (Exception e){Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);}
         try {
             if (childCount.getText() != null) {
-                normalWithRange.setChildrenCount((Integer.parseInt(childCount.getText().toString())));
-                normalWithRange.init();
+                circularLayout.setChildrenCount((Integer.parseInt(childCount.getText().toString())));
+                circularLayout.init();
             }
         }
         catch (Exception e){Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);}
         try {
             if (offsetX.getText() != null) {
-                normalWithRange.setOffsetX((Integer.parseInt(offsetX.getText().toString())));
-                normalWithRange.init();
+                circularLayout.setOffsetX((Integer.parseInt(offsetX.getText().toString())));
+                circularLayout.init();
             }
         }
         catch (Exception e){Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);}
         try {
             if (offsetY.getText() != null) {
-                normalWithRange.setOffsetY((Integer.parseInt(offsetY.getText().toString())));
-                normalWithRange.init();
+                circularLayout.setOffsetY((Integer.parseInt(offsetY.getText().toString())));
+                circularLayout.init();
             }
         }
         catch (Exception e){Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT);}
 
     }
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        normalWithRange =(CircleLayout) findViewById(R.id.normalWithRange);
+        circularLayout =(CircleLayout) findViewById(R.id.circularLayout);
 
         CircleLayoutAdapter ad=new CircleLayoutAdapter();
         ad.add(R.drawable.a1);
@@ -68,13 +75,13 @@ public class MainActivity extends Activity {
         ad.add(R.drawable.a10);
         ad.add(R.drawable.a11);
         ad.add(R.drawable.a12);
-        normalWithRange.setAdapter(ad);
-        normalWithRange.setChildrenCount(10);
-        normalWithRange.setRadius(120);
-        //normalWithRange.setChildrenPinned(true);
+        circularLayout.setAdapter(ad);
+        circularLayout.setChildrenCount(10);
+        circularLayout.setRadius(120);
+        //circularLayout.setChildrenPinned(true);
 
 
-	}
-	
+    }
+
 
 }
