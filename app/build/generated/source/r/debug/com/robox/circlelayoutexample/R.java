@@ -94,11 +94,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int circularLayout=0x7f040007;
         public static final int normal=0x7f040000;
         public static final int pie=0x7f040001;
+        public static final int skChildCount=0x7f040003;
+        public static final int skOffsetX=0x7f040004;
+        public static final int skOffsetY=0x7f040005;
+        public static final int skRad=0x7f040002;
         public static final int tglBtn=0x7f040006;
-        public static final int txtChildCount=0x7f040002;
-        public static final int txtOffsetX=0x7f040003;
-        public static final int txtOffsetY=0x7f040004;
-        public static final int txtRad=0x7f040005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
