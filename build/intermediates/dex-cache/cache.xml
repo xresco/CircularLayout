@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Dropbox\Dropbox\AndroidWorkSpace\CircularLayout\app\build\intermediates\exploded-aar\CircularLayout\circlelayout\unspecified\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="b3ec97283e36c286cb4c3b09d2eec4626dcc7574">
+        <dex dex="D:\Dropbox\Dropbox\AndroidWorkSpace\CircularLayout\app\build\intermediates\pre-dexed\debug\classes-3727f4cef19e18e167ce632a41d7e8d99d2a03a3.jar" />
+    </item>
+
+</items>

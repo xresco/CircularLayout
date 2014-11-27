@@ -118,7 +118,7 @@
 
         </LinearLayout>
 
-        <com.robox.widget.CircleLayout
+        <com.example.x.circlelayout.CircleLayout
             android:id="@+id/circularLayout"
             android:layout_width="fill_parent"
             android:layout_height="220dp"
@@ -128,5 +128,5 @@
             app:angleRange="360"
             android:paddingBottom="0dp">
 
-        </com.robox.widget.CircleLayout>
+        </com.example.x.circlelayout.CircleLayout>
 </FrameLayout>

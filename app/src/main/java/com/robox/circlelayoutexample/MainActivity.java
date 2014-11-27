@@ -1,15 +1,15 @@
 package com.robox.circlelayoutexample;
 
 
-import com.robox.widget.CircleLayout;
-import com.robox.widget.CircleLayoutAdapter;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.example.x.circlelayout.CircleLayout;
+import com.example.x.circlelayout.CircleLayoutAdapter;
 
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
