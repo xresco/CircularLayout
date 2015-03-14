@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleLayout"><attr format="dimension" name="innerRadius"/><attr format="reference|color" name="sliceDivider"/><attr format="reference|color" name="innerCircle"/><attr format="float" name="angleOffset"/><attr format="float" name="angleRange"/><attr name="layoutMode"><enum name="normal" value="1"/><enum name="pie" value="2"/></attr><attr format="dimension" name="dividerWidth"/></declare-styleable>
+    <!-- From: file:/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/circlelayout/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">CircleLayout</string>
+</resources>

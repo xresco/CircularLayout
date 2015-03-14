@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.robox.circlelayoutexample.test">
 
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="18" />
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21" />
 
     <application>
         <uses-library android:name="android.test.runner" />
