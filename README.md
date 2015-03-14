@@ -15,6 +15,10 @@ Pinned:
 <img src="https://cloud.githubusercontent.com/assets/5923804/6651137/04735b52-ca70-11e4-9408-2ee8d6bde594.gif" height="500"/>
 <br/>
 
+This library was used by some of the biggest apps on Playstore like Omvana. Omvana is one of the top rated meditation apps on both IOS and Android 
+Omvana URL: https://play.google.com/store/apps/details?id=com.omvana.mixer
+
+
 I have uploaded a sample app that uses this library. In this app you can customize the circualr layout using set of seek bars.
 A direct link for the sample app:
 http://www.4shared.com/get/7i-76wzHba/Circular_Layout_Sample_App.html
