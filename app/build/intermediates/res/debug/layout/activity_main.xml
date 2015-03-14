@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:progress="90"
-                android:secondaryProgress="20"
+                android:secondaryProgress="90"
                 android:layout_marginTop="26dp"
                 android:max="180"
 
@@ -86,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:progress="60"
-                android:secondaryProgress="20"
+                android:secondaryProgress="60"
                 android:layout_marginTop="26dp"
                 android:max="120"
 

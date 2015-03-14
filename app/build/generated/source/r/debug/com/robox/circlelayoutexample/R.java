@@ -88,10 +88,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int a9=0x7f02000b;
         public static final int cloud=0x7f02000c;
         public static final int ic_launcher=0x7f02000d;
+        public static final int mute=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f080008;
+        public static final int action_settings=0x7f08000a;
+        public static final int background=0x7f080008;
         public static final int circularLayout=0x7f080007;
+        public static final int forground=0x7f080009;
         public static final int normal=0x7f080000;
         public static final int pie=0x7f080001;
         public static final int skChildCount=0x7f080003;
@@ -102,6 +105,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int custom_image_view_layout=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f070000;

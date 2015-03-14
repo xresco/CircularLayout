@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/CircularLayout.iml" filepath="$PROJECT_DIR$/CircularLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/circlelayout/circlelayout.iml" filepath="$PROJECT_DIR$/circlelayout/circlelayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/circlelayout/libraries-circlelayout.iml" filepath="$PROJECT_DIR$/libraries/circlelayout/libraries-circlelayout.iml" />
     </modules>
   </component>
 </project>

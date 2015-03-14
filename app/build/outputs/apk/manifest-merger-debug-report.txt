@@ -15,7 +15,7 @@ ADDED from AndroidManifest.xml:2:1
 		ADDED from AndroidManifest.xml:2:11
 application
 ADDED from AndroidManifest.xml:8:5
-MERGED from CircleLayout:circlelayout:unspecified:9:5
+MERGED from CircleLayout.libraries:circlelayout:unspecified:11:5
 	android:label
 		ADDED from AndroidManifest.xml:11:9
 	android:allowBackup
@@ -40,7 +40,7 @@ ADDED from AndroidManifest.xml:17:17
 		ADDED from AndroidManifest.xml:17:27
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
-MERGED from CircleLayout:circlelayout:unspecified:5:5
+MERGED from CircleLayout.libraries:circlelayout:unspecified:7:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0

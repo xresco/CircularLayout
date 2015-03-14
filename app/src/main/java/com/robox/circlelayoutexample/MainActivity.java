@@ -10,6 +10,7 @@ import android.widget.ToggleButton;
 
 import com.example.x.circlelayout.CircleLayout;
 import com.example.x.circlelayout.CircleLayoutAdapter;
+import CircleLayout.*;
 
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
@@ -34,6 +35,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         if(seekBar.getId()==R.id.skChildCount) {
             circularLayout.setChildrenCount(progressChanged);
             circularLayout.init();
+            circularLayout.balanceRotate();
         }
         if(seekBar.getId()==R.id.skOffsetX) {
             circularLayout.setOffsetX(progressChanged-90);
@@ -76,7 +78,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
         circularLayout =(CircleLayout) findViewById(R.id.circularLayout);
 
-        CircleLayoutAdapter ad=new CircleLayoutAdapter();
+        MyCircleLayoutAdapter ad=new MyCircleLayoutAdapter();
         ad.add(R.drawable.a1);
         ad.add(R.drawable.a2);
         ad.add(R.drawable.a3);

@@ -21,8 +21,11 @@ int drawable a8 0x7f02000a
 int drawable a9 0x7f02000b
 int drawable cloud 0x7f02000c
 int drawable ic_launcher 0x7f02000d
-int id action_settings 0x7f080008
+int drawable mute 0x7f02000e
+int id action_settings 0x7f08000a
+int id background 0x7f080008
 int id circularLayout 0x7f080007
+int id forground 0x7f080009
 int id normal 0x7f080000
 int id pie 0x7f080001
 int id skChildCount 0x7f080003
@@ -31,6 +34,7 @@ int id skOffsetY 0x7f080005
 int id skRad 0x7f080002
 int id tglBtn 0x7f080006
 int layout activity_main 0x7f030000
+int layout custom_image_view_layout 0x7f030001
 int menu main 0x7f070000
 int string action_settings 0x7f050000
 int string app_name 0x7f050001

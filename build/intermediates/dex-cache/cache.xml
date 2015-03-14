@@ -2,25 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/exploded-aar/CircleLayout/circlelayout/unspecified/classes.jar"
+        jar="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/exploded-aar/CircleLayout.libraries/circlelayout/unspecified/classes.jar"
         jumboMode="false"
         revision="21.0.0"
-        sha1="dcb6f6846f49ddd6dfdba1837dfc18d3deedde59">
-        <dex dex="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/pre-dexed/debug/classes-b43cdf25fcc08575a474f5e8d49900c1ad0f9bd8.jar" />
-    </item>
-    <item
-        jar="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/exploded-aar/CircleLayout/circlelayout/unspecified/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1fe76e66ffd01059df0f1c252d8c3168271f125d">
-        <dex dex="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/pre-dexed/debug/classes-b43cdf25fcc08575a474f5e8d49900c1ad0f9bd8.jar" />
-    </item>
-    <item
-        jar="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/exploded-aar/CircleLayout/circlelayout/unspecified/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dcb6f6846f49ddd6dfdba1837dfc18d3deedde59">
-        <dex dex="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/pre-dexed/debug/classes-b43cdf25fcc08575a474f5e8d49900c1ad0f9bd8.jar" />
+        sha1="3c8f47ce5a79b5a7f44219a5612b3234373d8bfc">
+        <dex dex="/Users/mindvalley/Dropbox/AndroidWorkSpace/CircleLayout/app/build/intermediates/pre-dexed/debug/classes-3285d49a7ac20f7da46c60afb704185a7a72fed5.jar" />
     </item>
 
 </items>
