@@ -2,7 +2,18 @@ Circular Layout
 ==============
 
 A scrollable circular layout for android where you can add items, customize the radius, the number of items displayed at a time 
-and the X and Y offset of the layout. Moreover, you can control how the items are rendered when scrolling the layout. There are two modes Pinned and Fixed. 
+and the X and Y offset of the layout. Moreover, you can control how the items are rendered when scrolling the layout. There are two modes Pinned and Fixed. The two modes differ in the way the items rotate. Here are the samples:
+
+Fixed:
+
+
+<img src="https://cloud.githubusercontent.com/assets/5923804/6651123/f07f73ba-ca6f-11e4-8318-65512de70f70.gif" height="500"/>
+<br/>
+
+Pinned:
+
+<img src="https://cloud.githubusercontent.com/assets/5923804/6651137/04735b52-ca70-11e4-9408-2ee8d6bde594.gif" height="500"/>
+<br/>
 
 I have uploaded a sample app that uses this library. In this app you can customize the circualr layout using set of seek bars.
 A direct link for the sample app:
@@ -17,5 +28,7 @@ The following are photos for the sample app. You can see how the circular layout
 <img src="https://cloud.githubusercontent.com/assets/5923804/5010989/04484ff0-6ab4-11e4-96cf-72542d8f5433.png" height="500"/>
 
 If you have any comment or question don't hesitate to contact me.
+
+my email: abd.almoradi@gmail.com
 
 Thank you.
